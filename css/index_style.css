@@ -1,0 +1,160 @@
+/*css*/
+
+body {
+    background-color: black;
+}
+/******************************************************/
+.drawer
+{
+    background-color: #f8f6f6;;
+	text-align: center;
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+	width: 60px;
+	height: 100vh;
+	z-index: 99999;
+	transition: all 0.6s ease;
+}
+
+.drawerLogo img 
+{
+	height: 50px;
+}
+
+.drawerMenu
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.drawerMenu i 
+{
+	font-size: 25px;
+}
+
+.drawerSocial
+{
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.openNav
+{
+	left: 16.5%; !important; /* 3yza ageb width bta3 l menu*/
+}
+.closeNav
+{
+	transform: translateX(0) !important;
+}
+
+.navMenu 
+{
+    background-color: black;
+	position: fixed;
+	top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+	width: 250px;
+	height: 100vh;
+	z-index: 99999;
+	transform: translateX(-100%);
+	transition: transform 0.6s ease;
+}
+.navMenu  ul 
+{
+	padding-left: 30px;
+	height: 300px;
+	overflow: hidden;
+
+}
+.navMenu  li 
+{
+    list-style-type: none;
+}
+.navList ul li a 
+{
+	color: #f9f6f6;
+	font-size: 16px;
+}
+.navList ul li a:hover , .navSocial  a:hover
+{
+    color: #ff655c;
+    text-decoration: none;
+	transition:all 0.3s;
+}
+.navSocial
+{
+    color: white;
+	position: absolute;
+	bottom: 50px;
+	left: 20px;
+}
+.navSocial  a 
+{
+	color: #f9f6f6;
+	padding-left: 15px;
+}
+.navSocial h5
+{
+    font-size: 14px;
+}
+
+
+/*********************************/
+.searchMovieInput{
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.userForm input{
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.userForm h1{
+    color: white;
+
+}
+
+.onMovie
+{
+    position: relative;
+    overflow: hidden;    
+    
+}
+
+.onMovie img
+{
+    width: 100%;
+    height: 100%; 
+}
+
+.movieLayer
+{
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition:  all 0.5s ease-in;
+    text-align: center;
+    color: black;
+}
+
+.onMovie:hover .movieLayer
+{
+    top: 0;
+}

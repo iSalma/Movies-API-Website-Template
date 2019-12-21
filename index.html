@@ -1,0 +1,128 @@
+<html>
+
+<head>
+
+    <title> Movies </title>
+    <link rel="icon" href="elogoe.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/index_style.css">
+
+</head>
+
+<body>
+
+    <!-- SIDE NAV BAR -->
+    <div class="drawer">
+
+        <div class="drawerLogo py-3">
+            <img src="images/logo.png">
+        </div>
+
+        <div class="drawerMenu">
+            <i class="fa fa-align-justify"></i>
+        </div>
+
+        <div class="drawerSocial">
+            <div class="drawerGlobe">
+                <i class="fas fa-globe"></i>
+            </div>
+
+            <div class="drawerShare py-3">
+                <i class="fas fa-share-alt"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="navMenu">
+        <div class="navList">
+            <ul>
+                <li class="li1 py-2"><a class="nav-category" href="#">Now playing</a></li>
+                <li class="li2 py-2"><a class="nav-category" href="#">Popular</a></li>
+                <li class="li3 py-2"><a class="nav-category" href="#">Top Rated</a></li>
+                <li class="li4 py-2"><a class="nav-category" href="#">Trending</a></li>
+                <li class="li5 py-2"><a class="nav-category" href="#">Upcoming</a></li>
+                <li class="li6 py-2"><a class="nav-category" href="#contactUS">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="navSocial">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-globe"></i></a>
+            <h5>Copyright2019 All Rights Reserved.</h5>
+        </div>
+    </div>
+    <!-- END SIDE NAV BAR -->
+
+    <!-- SEARCH MOVIE -->
+    <section id="search">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <input onkeyup="searchMovie(this.value)" placeholder="Search movie by name..."
+                        class=" w-100 searchMovieInput" id="searchMovieID">
+                </div>
+
+                <div class="col-md-6">
+                    <input onkeyup="searchMovie(this.value)" placeholder="Search ..." class=" w-100  searchMovieInput">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SEARCH MOVIE -->
+
+    <!-- SHOW MOVIEs -->
+    <section class="showMovie">
+        <div class="container py-3">
+            <div class="row mt-5" id="moviesRow">
+                <!-- added code of movies by JS -->
+            </div>
+        </div>
+    </section>
+    <!-- END SHOW MOVIES -->
+
+    <!-- CONTACT US -->
+    <section id="contactUS">
+        <div class="container userForm">
+            <h1 class="mb-5">Contact Us...</h1>
+            <div class="row ">
+                <div class="col-md-6 form-group">
+                    <input type="text" placeholder="Enter your name" class="w-100 mb-3" id="nameInp">
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <input type="text" placeholder="Enter your E-mail" class="w-100 mb-3" id="emailInp">
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="text" placeholder="Enter Phone" class="w-100 mb-3" id="phoneInp">
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="text" placeholder="Enter Age" class="w-100 mb-3" id="ageInp">
+                </div>
+                <div class=" col-md-6 form-group">
+                    <input type="text" placeholder="Enter Password" class="w-100 mb-3" id="pwInp">
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <input type="text" placeholder="Enter Repassword" class="w-100 mb-3" id="rePwInp">
+                </div>
+
+                <button onclick="submit()" class="btn btn-outline-danger ">Submit</button>
+
+            </div>
+        </div>
+    </section>
+    <!-- END CONTACT US -->
+
+    <!-- SCRIPT -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <!-- END SCRIPT -->
+
+</body>
+
+</html>
