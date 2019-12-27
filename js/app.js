@@ -10,10 +10,16 @@ $("#toggleNav").click(function () {
 
     if ($("#options-container").css("left") == "0px") {
         $("#options-container").animate({ left: `-${navWidth}px` }, 500);
-
+        $(".navMenu li").animate({ opacity: "0", marginTop:"500px"});
+        
     }
     else {
         $("#options-container").animate({ left: `0px` }, 500);
+        $(".navMenu .li1").animate({ opacity: "1", marginTop: "10px" }, 1200);
+        $(".navMenu .li2").animate({ opacity: "1", marginTop: "10px" }, 1300);
+        $(".navMenu .li3").animate({ opacity: "1", marginTop: "10px" }, 1400);
+        $(".navMenu .li4").animate({ opacity: "1", marginTop: "10px" }, 1500);
+        $(".navMenu .li5").animate({ opacity: "1", marginTop: "10px" }, 1600);
     }
 })
 //END SIDE NAV BAR/////////////////
@@ -107,7 +113,6 @@ $(".navList .liEle").click(function () {
 getData(pathMovie);
 
 var links = document.querySelectorAll(".nav-link");
-
 
 function getData(pathMovie) {
     // httpReq.open("GET", "https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY")
