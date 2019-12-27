@@ -197,13 +197,14 @@ body {
 
 .movieLayer
 {
-    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     height: 100%;
-    transition:  all 0.5s ease-in;
+    transition:  all 0.8s ease-in;
     text-align: center;
     color: black;
 }
