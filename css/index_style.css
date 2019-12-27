@@ -2,22 +2,88 @@
 
 body {
     background-color: black;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /******************************************************/
+
+/******************************/
+
+#loading
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99999;
+    background-color: black;
+}
+.spinner {
+    margin: 300px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear;
+  }
+  
+  .dot1, .dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    border-radius: 100%;
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  
+  .dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+  @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+  
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bounce {
+    0%, 100% { 
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% { 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+  }
+
+/******************************/
+#options-container
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
 .drawer
 {
     background-color: #f8f6f6;;
 	text-align: center;
-	position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
 	width: 60px;
-	height: 100vh;
-	z-index: 99999;
-	transition: all 0.6s ease;
-}
+	height: 100vh;}
 
 .drawerLogo img 
 {
@@ -26,7 +92,8 @@ body {
 
 .drawerMenu
 {
-	position: absolute;
+    position: absolute;
+    cursor: pointer;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
@@ -39,41 +106,25 @@ body {
 
 .drawerSocial
 {
-	position: absolute;
+    position: absolute;
+    cursor: pointer;
 	bottom: 20px;
 	left: 50%;
 	transform: translate(-50%);
 }
 
-.openNav
-{
-	left: 16.5%; !important; /* 3yza ageb width bta3 l menu*/
-}
-.closeNav
-{
-	transform: translateX(0) !important;
-}
-
 .navMenu 
 {
     background-color: black;
-	position: fixed;
-	top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-	width: 250px;
+	width: 15.63rem;
 	height: 100vh;
-	z-index: 99999;
-	transform: translateX(-100%);
-	transition: transform 0.6s ease;
 }
 .navMenu  ul 
 {
-	padding-left: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
 	height: 300px;
 	overflow: hidden;
-
 }
 .navMenu  li 
 {
@@ -82,7 +133,7 @@ body {
 .navList ul li a 
 {
 	color: #f9f6f6;
-	font-size: 16px;
+    font-size: 16px;
 }
 .navList ul li a:hover , .navSocial  a:hover
 {
@@ -92,9 +143,9 @@ body {
 }
 .navSocial
 {
-    color: white;
-	position: absolute;
-	bottom: 50px;
+    color: gray;
+    position: absolute;
+	bottom: 44px;
 	left: 20px;
 }
 .navSocial  a 
@@ -103,7 +154,7 @@ body {
 	padding-left: 15px;
 }
 .navSocial h5
-{
+{   padding: 10px;
     font-size: 14px;
 }
 
@@ -157,4 +208,20 @@ body {
 .onMovie:hover .movieLayer
 {
     top: 0;
+}
+/**************************************/
+#nameAlert, #phoneAlert, #ageAlert, #emailAlert, #pwAlert, #rePwAlert
+{
+    display: none;    
+
+}
+
+/*******************/
+#btnUp
+{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 555;
+    display: none;
 }
