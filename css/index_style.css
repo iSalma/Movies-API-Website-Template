@@ -126,9 +126,11 @@ body {
 	height: 300px;
 	overflow: hidden;
 }
-.navMenu  li 
+.navMenu  li
 {
     list-style-type: none;
+    opacity: 0;
+    margin-top: 500px;
 }
 .navList ul li a 
 {
@@ -214,7 +216,6 @@ body {
 #nameAlert, #phoneAlert, #ageAlert, #emailAlert, #pwAlert, #rePwAlert
 {
     display: none;    
-
 }
 
 /*******************/
