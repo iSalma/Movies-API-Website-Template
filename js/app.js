@@ -1,60 +1,95 @@
 //js
 
 
-$(".drawerMenu").click(function () {
-    $(".navMenu").toggleClass("closeNav")
-    $(".drawer").toggleClass("openNav")
-})
-//VALIDATE DATA /////////////////////////////
-function validateName(inputValue) {
-    var nameRegex = /^[a-zA-Z][a-zA-z0-9-,._ ]{2,20}$/;
-    if (nameRegex.test(inputValue) == false) {
-        return false;
+//SIDE NAV BAR/////////////////
+let navWidth = $(".navMenu").outerWidth(true);
+$("#options-container").css("left", `-${navWidth}px`);
+
+$("#toggleNav").click(function () {
+    $(".fa-align-justify").toggleClass("fa-times");
+
+    if ($("#options-container").css("left") == "0px") {
+        $("#options-container").animate({ left: `-${navWidth}px` }, 500);
+
     }
     else {
-        return true;
+        $("#options-container").animate({ left: `0px` }, 500);
+    }
+})
+//END SIDE NAV BAR/////////////////
+
+//VALIDATE DATA /////////////////////////////
+let notValid;
+function validateName(inputValue) {
+    var nameRegex = /^[a-z][a-z ]{1,20}$/i;
+    if (nameRegex.test(inputValue) == false) {
+        $("#nameAlert").css("display", "block");
+    }
+    else {
+        $("#nameAlert").css("display", "none");
     }
 }
 
 function validateEmail(inputValue) {
-    var categoryRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-    if (categoryRegex.test(inputValue) == false) {
-        return false;
+    var emailRegex = /^([a-zA-Z][a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    if (emailRegex.test(inputValue) == false) {
+        $("#emailAlert").css("display", "block");
     }
     else {
-        return true;
+        $("#emailAlert").css("display", "none");
     }
 }
 
 function validatePhone(inputValue) {
-    var priceRegex = /^(01)[0125][0-9]{8}$/;
-    if (priceRegex.test(inputValue) == false) {
-        return false;
+    var phoneRegex = /^(\+02)?(01)[0125][0-9]{8}$/;
+    if (phoneRegex.test(inputValue) == false) {
+        $("#phoneAlert").css("display", "block");
     }
     else {
-        return true;
+        $("#phoneAlert").css("display", "none");
     }
 }
 
 function validateAge(inputValue) {
-    var descRegex = /^$/;
-    if (descRegex.test(inputValue) == false) {
-        return false;
+    var ageRegex = /([1-9][0-9]{1,2})$/;
+    if (ageRegex.test(inputValue) == false) {
+        $("#ageAlert").css("display", "block");
     }
     else {
-        return true;
+        $("#ageAlert").css("display", "none");
     }
 }
 
 function validatePw(inputValue) {
-    var descRegex = /^$/;
-    if (descRegex.test(inputValue) == false) {
-        return false;
+    var pwRegex = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+    if (pwRegex.test(inputValue) == false) {
+        $("#pwAlert").css("display", "block");
     }
     else {
-        return true;
+        $("#pwAlert").css("display", "none");
     }
 }
+
+function validateRePw(inputValue) {
+    let pw = $("#pwInp").val();
+    let rePw = $("#rePwInp").val();
+    if (pw != rePw) {
+        $("#rePwAlert").css("display", "block");
+    }
+    else {
+        $("#rePwAlert").css("display", "none");
+    }
+}
+
+
+$("#nameAlert").css("marginTop", `-15px`);
+$("#emailAlert").css("marginTop", `-15px`);
+$("#phoneAlert").css("marginTop", `-15px`);
+$("#ageAlert").css("marginTop", `-15px`);
+$("#pwAlert").css("marginTop", `-15px`);
+$("#rePwAlert").css("marginTop", `-15px`);
+
+
 //END VALIDATION////////////////////////////////
 
 
@@ -63,23 +98,29 @@ function validatePw(inputValue) {
 //GET MOVIES DATA/////////////////
 var allData = [];
 var httpReq = new XMLHttpRequest();
-var category = "general";
-getData(category);
+let pathMovie = "now_playing";
+$(".navList .liEle").click(function () {
+    pathMovie = $(this).attr('id');
+    getData(pathMovie);
+    console.log(pathMovie)
+})
+
+getData(pathMovie);
 
 var links = document.querySelectorAll(".nav-link");
 
-for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", function (e) {
-        category = e.target.text;
-        getData(category);
+// for (var i = 0; i < links.length; i++) {
+//     links[i].addEventListener("click", function (e) {
+//         category = e.target.text;
+//         getData(category);
 
-    })
-}
+//     })
+// }
 
-function getData(category) {
-    //https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY
-    //httpReq.open("GET", "https://newsapi.org/v2/top-headlines?country=us&category=" + category + "&apiKey=31cf74b9d55a4b6780e02b8c74a4cf61")
-    httpReq.open("GET", "https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY")
+function getData(pathMovie) {
+    // httpReq.open("GET", "https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY")
+
+    httpReq.open("GET", "https://api.themoviedb.org/3/movie/" + pathMovie + "?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY")
     httpReq.send();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState == 4 && httpReq.status == 200) {
@@ -145,10 +186,10 @@ function searchMovie(term) {
 function submit() {
 
     var userName = document.getElementById("nameInp").value;
-   
 
-    if (validateName(userName) == true ) {
-        
+
+    if (validateName(userName) == true) {
+
         // akml b2et l validation 
     }
     else {
@@ -157,4 +198,41 @@ function submit() {
 
 }
 
+function clearForm() {
+    let ips = $("input");
+    for (let i = 0; i < ips.length; i++) {
+        ips[i].value = "";
+    }
+}
+
 // END VALIDATE FORM ///////////////////////
+
+//LOADING SCREEN///////////////////
+$(window).on("load", function () {
+    $("#loading").fadeOut(1000, function () {
+        $("body").css("overflow", "auto");
+        clearForm();
+    })
+})
+//END LOADING SCREEN///////////////////
+
+//BUTTON UP//////////////////////////////////////////////
+let aboutOffset = $("#searchMovieID").offset().top;
+
+$(window).scroll(function () {
+
+    let winScroll = $(window).scrollTop();
+
+    if (winScroll > aboutOffset) {
+
+        $("#btnUp").fadeIn(500);
+    }
+    else {
+        $("#btnUp").fadeOut(500);
+    }
+})
+$("#btnUp").click(function () {
+
+    $("html, body").animate({ scrollTop: '0' }, 1000);
+})
+//END BUTTON UP//////////////////////////////////////////////
