@@ -3,7 +3,7 @@
 <head>
 
     <title> Movies </title>
-    <link rel="icon" href="elogoe.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="images/logo.png" type="image/png" sizes="16x16" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/index_style.css">
@@ -13,45 +13,45 @@
 <body>
 
     <!-- SIDE NAV BAR -->
-    <div class="drawer">
-
-        <div class="drawerLogo py-3">
-            <img src="images/logo.png">
-        </div>
-
-        <div class="drawerMenu">
-            <i class="fa fa-align-justify"></i>
-        </div>
-
-        <div class="drawerSocial">
-            <div class="drawerGlobe">
-                <i class="fas fa-globe"></i>
+    <div id="options-container" class="d-flex ">
+        <div class="navMenu">
+            <div class="navList">
+                <ul>
+                    <li id="now_playing" class="liEle py-2"><a class="nav-category" href="#">Now playing</a></li>
+                    <li id="popualr" class="liEle py-2"><a class="nav-category" href="#">Popular</a></li>
+                    <li id="top_rated" class="liEle py-2"><a class="nav-category" href="#">Top Rated</a></li>
+                    <li id="trending" class="liEle py-2"><a class="nav-category" href="#">Trending</a></li>
+                    <li id="upcoming" class="liEle py-2"><a class="nav-category" href="#">Upcoming</a></li>
+                    <li id="contactus" class="py-2"><a class="nav-category" href="#contactUS">Contact Us</a></li>
+                </ul>
             </div>
 
-            <div class="drawerShare py-3">
-                <i class="fas fa-share-alt"></i>
+            <div class="navSocial">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-globe"></i></a>
+                <h5>Copyright2019 All Rights Reserved.</h5>
             </div>
         </div>
 
-    </div>
+        <div class="drawer">
+            <div class="drawerLogo py-3">
+                <img src="images/logo.png">
+            </div>
 
-    <div class="navMenu">
-        <div class="navList">
-            <ul>
-                <li class="li1 py-2"><a class="nav-category" href="#">Now playing</a></li>
-                <li class="li2 py-2"><a class="nav-category" href="#">Popular</a></li>
-                <li class="li3 py-2"><a class="nav-category" href="#">Top Rated</a></li>
-                <li class="li4 py-2"><a class="nav-category" href="#">Trending</a></li>
-                <li class="li5 py-2"><a class="nav-category" href="#">Upcoming</a></li>
-                <li class="li6 py-2"><a class="nav-category" href="#contactUS">Contact Us</a></li>
-            </ul>
-        </div>
+            <div class="drawerMenu">
+                <i id="toggleNav" class="fa fa-align-justify"></i>
+            </div>
 
-        <div class="navSocial">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fas fa-globe"></i></a>
-            <h5>Copyright2019 All Rights Reserved.</h5>
+            <div class="drawerSocial">
+                <div class="drawerGlobe">
+                    <i class="fas fa-globe"></i>
+                </div>
+
+                <div class="drawerShare py-3">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+            </div>
         </div>
     </div>
     <!-- END SIDE NAV BAR -->
@@ -88,25 +88,43 @@
         <div class="container userForm">
             <h1 class="mb-5">Contact Us...</h1>
             <div class="row ">
-                <div class="col-md-6 form-group">
-                    <input type="text" placeholder="Enter your name" class="w-100 mb-3" id="nameInp">
+                <div class="col-md-6 form-group" id="name">
+                    <input onkeyup="validateName(this.value)" type="text" placeholder="Enter your name" class="w-100 mb-3" id="nameInp">
+                    <div class="alert alert-danger" id="nameAlert" role="alert">
+                        Your name is not valid.
+                    </div>
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <input type="text" placeholder="Enter your E-mail" class="w-100 mb-3" id="emailInp">
+                    <input onkeyup="validateEmail(this.value)" type="text" placeholder="Enter your E-mail" class="w-100 mb-3" id="emailInp">
+                    <div class="alert alert-danger" id="emailAlert" role="alert">
+                        Your e-mail is not valid.
+                    </div>
                 </div>
                 <div class="col-md-6 form-group">
-                    <input type="text" placeholder="Enter Phone" class="w-100 mb-3" id="phoneInp">
+                    <input onkeyup="validatePhone(this.value)" type="text" placeholder="Enter Phone" class="w-100 mb-3" id="phoneInp">
+                    <div class="alert alert-danger" id="phoneAlert" role="alert">
+                        Your phone number is not valid
+                    </div>
                 </div>
                 <div class="col-md-6 form-group">
-                    <input type="text" placeholder="Enter Age" class="w-100 mb-3" id="ageInp">
+                    <input onkeyup="validateAge(this.value)" type="text" placeholder="Enter Age" class="w-100 mb-3" id="ageInp">
+                    <div class="alert alert-danger" id="ageAlert" role="alert">
+                        Your age is not valid (between 10 to 100) 
+                    </div>
                 </div>
                 <div class=" col-md-6 form-group">
-                    <input type="text" placeholder="Enter Password" class="w-100 mb-3" id="pwInp">
+                    <input onkeyup="validatePw(this.value)" type="text" placeholder="Enter Password" class="w-100 mb-3" id="pwInp">
+                    <div class="alert alert-danger" id="pwAlert" role="alert">
+                        Entre valid password *Minimum eight characters, at least one letter and one number:* 
+                    </div>
                 </div>
 
                 <div class="col-md-6 form-group">
-                    <input type="text" placeholder="Enter Repassword" class="w-100 mb-3" id="rePwInp">
+                    <input onkeyup="validateRePw(this.value)" type="text" placeholder="Enter Repassword" class="w-100 mb-3" id="rePwInp">
+                    <div class="alert alert-danger" id="rePwAlert" role="alert">
+                        Entre valid Repassword.
+                    </div>
                 </div>
 
                 <button onclick="submit()" class="btn btn-outline-danger ">Submit</button>
@@ -115,6 +133,22 @@
         </div>
     </section>
     <!-- END CONTACT US -->
+
+
+    <!-- LOADING SCREEN -->
+    <section id="loading" class=" ">
+        <div class="spinner ">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </section>
+    <!-- END LOADING SCREEN -->
+
+    <!-- GO UP BUTTON -->
+    <button id="btnUp" class="btn  btn-light p-2 rounded-circle">
+        <i class="fas fa-arrow-alt-circle-up"></i>
+    </button>
+    <!-- END GO UP BUTTON -->
 
     <!-- SCRIPT -->
     <script src="js/jquery-3.4.1.min.js"></script>
