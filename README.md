@@ -2,9 +2,9 @@
 - Real-time Search Movies.
 - Display by Categories.
 - Contact Us Section with Inputs Validation.
-#Visit
+# Visit
 [Link](https://isalma.github.io/Movies-API-Website-Template/index.html#contactUS)
-#Using
+# Using
 - HTML5
 - CSS3
 - Bootstrap4
