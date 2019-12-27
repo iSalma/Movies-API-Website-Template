@@ -15,11 +15,12 @@ $("#toggleNav").click(function () {
     }
     else {
         $("#options-container").animate({ left: `0px` }, 500);
-        $(".navMenu .li1").animate({ opacity: "1", marginTop: "10px" }, 1200);
-        $(".navMenu .li2").animate({ opacity: "1", marginTop: "10px" }, 1300);
-        $(".navMenu .li3").animate({ opacity: "1", marginTop: "10px" }, 1400);
-        $(".navMenu .li4").animate({ opacity: "1", marginTop: "10px" }, 1500);
-        $(".navMenu .li5").animate({ opacity: "1", marginTop: "10px" }, 1600);
+        $(".navMenu .li1").animate({ opacity: "1", marginTop: "8px" }, 1200);
+        $(".navMenu .li2").animate({ opacity: "1", marginTop: "8px" }, 1300);
+        $(".navMenu .li3").animate({ opacity: "1", marginTop: "8px" }, 1400);
+        $(".navMenu .li4").animate({ opacity: "1", marginTop: "8px" }, 1500);
+        $(".navMenu .li5").animate({ opacity: "1", marginTop: "8px" }, 1600);
+        $(".navMenu .li6").animate({ opacity: "1", marginTop: "8px" }, 1700);
     }
 })
 //END SIDE NAV BAR/////////////////
