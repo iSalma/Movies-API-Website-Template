@@ -3,7 +3,7 @@
 - Display by Categories.
 - Contact Us Section with Inputs Validation.
 # Visit
-[Link](https://isalma.github.io/Movies-API-Website-Template/index.html#contactUS)
+Click [here](https://isalma.github.io/Movies-API-Website-Template/index.html#contactUS) to go to the website.
 # Using
 - HTML5
 - CSS3
