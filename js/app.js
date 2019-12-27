@@ -1,7 +1,7 @@
 //js
 
 
-//SIDE NAV BAR/////////////////
+//SIDE NAV BAR//////////////////////////////////
 let navWidth = $(".navMenu").outerWidth(true);
 $("#options-container").css("left", `-${navWidth}px`);
 
@@ -10,8 +10,7 @@ $("#toggleNav").click(function () {
 
     if ($("#options-container").css("left") == "0px") {
         $("#options-container").animate({ left: `-${navWidth}px` }, 500);
-        $(".navMenu li").animate({ opacity: "0", marginTop:"500px"});
-        
+        $(".navMenu li").animate({ opacity: "0", marginTop:"500px"}); 
     }
     else {
         $("#options-container").animate({ left: `0px` }, 500);
@@ -23,10 +22,9 @@ $("#toggleNav").click(function () {
         $(".navMenu .li6").animate({ opacity: "1", marginTop: "8px" }, 1700);
     }
 })
-//END SIDE NAV BAR/////////////////
+//END SIDE NAV BAR///////////////////////////////////////////////
 
-//VALIDATE DATA /////////////////////////////
-let notValid;
+//VALIDATE DATA ////////////////////////////////////////////////
 function validateName(inputValue) {
     var nameRegex = /^[a-z][a-z ]{1,20}$/i;
     if (nameRegex.test(inputValue) == false) {
@@ -82,12 +80,13 @@ function validateRePw(inputValue) {
     let rePw = $("#rePwInp").val();
     if (pw != rePw) {
         $("#rePwAlert").css("display", "block");
+        return false;
     }
     else {
         $("#rePwAlert").css("display", "none");
+        return true;
     }
 }
-
 
 $("#nameAlert").css("marginTop", `-15px`);
 $("#emailAlert").css("marginTop", `-15px`);
@@ -96,11 +95,34 @@ $("#ageAlert").css("marginTop", `-15px`);
 $("#pwAlert").css("marginTop", `-15px`);
 $("#rePwAlert").css("marginTop", `-15px`);
 
-
 //END VALIDATION////////////////////////////////
 
+// VALIDATE FORM ///////////////////////
+function submit() {
 
+    var userName = document.getElementById("nameInp").value;
+    var email = document.getElementById("emailInp").value;
+    var phone = document.getElementById("phoneInp").value;
+    var age = document.getElementById("ageInp").value;
+    var pw = document.getElementById("pwInp").value;
+    var rePw = document.getElementById("rePwInp").value;
 
+    if (validateName(userName) == true || validateEmail(email) == true || validatePhone(phone) == true || validateAge(age) == true || validatePw(pw)==true || validateRePw(rePw)==true) {
+        
+    }
+    else {
+        //window.alert("Not Valid Input")
+    }
+}
+
+function clearForm() {
+    let ips = $("input");
+    for (let i = 0; i < ips.length; i++) {
+        ips[i].value = "";
+    }
+}
+
+// END VALIDATE FORM ///////////////////////
 
 //GET MOVIES DATA/////////////////
 var allData = [];
@@ -179,31 +201,6 @@ function searchMovie(term) {
 }
 
 //END SEARCH MOVIE ////////////////////
-
-// VALIDATE FORM ///////////////////////
-function submit() {
-
-    var userName = document.getElementById("nameInp").value;
-
-
-    if (validateName(userName) == true) {
-
-        // akml b2et l validation 
-    }
-    else {
-        window.alert("Not Valid Input")
-    }
-
-}
-
-function clearForm() {
-    let ips = $("input");
-    for (let i = 0; i < ips.length; i++) {
-        ips[i].value = "";
-    }
-}
-
-// END VALIDATE FORM ///////////////////////
 
 //LOADING SCREEN///////////////////
 $(window).on("load", function () {
