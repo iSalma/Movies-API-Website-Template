@@ -102,20 +102,12 @@ let pathMovie = "now_playing";
 $(".navList .liEle").click(function () {
     pathMovie = $(this).attr('id');
     getData(pathMovie);
-    console.log(pathMovie)
 })
 
 getData(pathMovie);
 
 var links = document.querySelectorAll(".nav-link");
 
-// for (var i = 0; i < links.length; i++) {
-//     links[i].addEventListener("click", function (e) {
-//         category = e.target.text;
-//         getData(category);
-
-//     })
-// }
 
 function getData(pathMovie) {
     // httpReq.open("GET", "https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1Es0Xl_Rp_okaNkNthYUTcOl0gaUmS6B60sbvHb1_zk-ps3j5p85aWKaY")
