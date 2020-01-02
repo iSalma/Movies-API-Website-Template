@@ -1,3 +1,7 @@
+<p align="center">
+<img  src = /images/moviesAPI.png>
+</p>
+
 # Movies API Website Template
 - Real-time Search Movies.
 - Display by Categories.
