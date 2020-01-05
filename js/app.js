@@ -10,7 +10,7 @@ $("#toggleNav").click(function () {
 
     if ($("#options-container").css("left") == "0px") {
         $("#options-container").animate({ left: `-${navWidth}px` }, 500);
-        $(".navMenu li").animate({ opacity: "0", marginTop:"500px"}); 
+        $(".navMenu li").animate({ opacity: "0", marginTop: "500px" });
     }
     else {
         $("#options-container").animate({ left: `0px` }, 500);
@@ -107,8 +107,8 @@ function submit() {
     var pw = document.getElementById("pwInp").value;
     var rePw = document.getElementById("rePwInp").value;
 
-    if (validateName(userName) == true || validateEmail(email) == true || validatePhone(phone) == true || validateAge(age) == true || validatePw(pw)==true || validateRePw(rePw)==true) {
-        
+    if (validateName(userName) == true || validateEmail(email) == true || validatePhone(phone) == true || validateAge(age) == true || validatePw(pw) == true || validateRePw(rePw) == true) {
+
     }
     else {
         //window.alert("Not Valid Input")
@@ -159,11 +159,12 @@ function displayData() {
         <div class="col-md-4 my-3">
           <div class="movieShow ">
             <div class="onMovie">
-                <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid rounded"/>
+                <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid"/>
                 <div class="movieLayer d-flex align-items-center">
                     <div class="movieInfo">
                         <h5>`+ allData[i].original_title + `</h5>
                         <p>`+ allData[i].overview + `</p>
+                        <p> Rate: `+ allData[i].vote_average + `</p>
                     </div>
                 </div>
              </div>
@@ -185,7 +186,7 @@ function searchMovie(term) {
         <div class="col-md-4 my-3">
           <div class="movieShow ">
             <div class="onMovie">
-                <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid rounded"/>
+                <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid"/>
                 <div class="movieLayer d-flex align-items-center">
                     <div class="movieInfo">
                         <h5>`+ allData[i].original_title + `</h5>
@@ -212,13 +213,13 @@ $(window).on("load", function () {
 //END LOADING SCREEN///////////////////
 
 //BUTTON UP//////////////////////////////////////////////
-let aboutOffset = $("#searchMovieID").offset().top;
+let searchBarOffset = $("#searchMovieID").offset().top;
 
 $(window).scroll(function () {
 
     let winScroll = $(window).scrollTop();
 
-    if (winScroll > aboutOffset) {
+    if (winScroll > searchBarOffset) {
 
         $("#btnUp").fadeIn(500);
     }
