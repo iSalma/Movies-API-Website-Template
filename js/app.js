@@ -191,6 +191,7 @@ function searchMovie(term) {
                     <div class="movieInfo">
                         <h5>`+ allData[i].original_title + `</h5>
                         <p>`+ allData[i].overview + `</p>
+                        <p> Rate: `+ allData[i].vote_average + `</p>
                     </div>
                 </div>
              </div>
