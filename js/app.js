@@ -156,7 +156,7 @@ function displayData() {
 
     for (var i = 0; i < allData.length; i++) {
         temp += `
-        <div class="col-md-4 my-3">
+        <div class="col-md-6 col-lg-4 my-3">
           <div class="movieShow ">
             <div class="onMovie">
                 <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid"/>
@@ -183,7 +183,7 @@ function searchMovie(term) {
     for (var i = 0; i < allData.length; i++) {
         if (allData[i].original_title.toLowerCase().includes(term.toLowerCase())) {
             temp += `
-        <div class="col-md-4 my-3">
+        <div class="col-md-6 col-lg-4 my-3">
           <div class="movieShow ">
             <div class="onMovie">
                 <img src="https://image.tmdb.org/t/p/w500`+ allData[i].poster_path + `" class="img-fluid"/>
